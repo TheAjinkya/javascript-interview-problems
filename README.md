@@ -99,3 +99,38 @@ for (let i = 2; i <= 20; i++) {
   }
 }
 ```
+
+. ### Find the Factorial 
+
+```javascript
+1. Using the While Loop
+
+var num = 5;
+var ans = 1;
+while(num!==0){
+	ans = ans* num
+	num--;
+}
+console.log("Factorial is: ", ans)
+
+2. Using the Recursion
+
+function FindTheFactorial(num){
+	if(num==0){
+		return 1;
+	}else{
+		return num * FindTheFactorial(num-1)
+	}
+}
+
+3. Using For Loop 
+
+var ans = 1;
+var num = 5;
+
+for(let i=1; i<=num; i++){
+	ans = ans* i
+}
+console.log("The factorial is", num)
+```
+
