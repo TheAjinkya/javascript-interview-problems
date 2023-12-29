@@ -82,6 +82,7 @@ while(num !=0){
 })
 console.log("palindrome", palindrome)
 ```
+
 6. ### Print first N numbers 
 
 ```javascript
@@ -134,3 +135,102 @@ for(let i=1; i<=num; i++){
 console.log("The factorial is", num)
 ```
 
+
+
+7. ### Find the Fibonacci Series of N numbers 
+
+```javascript
+
+var num1 = 0;
+var num2 = 1;
+var target = 10;
+
+for (let i = 0; i < target; i++){
+   console.log(num1);
+   var nextTerm = num1 + num2;;
+   num1 = num2;
+   num2= nextTerm;
+}
+
+```
+
+8. ### Bubble Sort  
+
+```javascript
+
+//Bubble sort
+
+var array = [10, 3, -5, -22, 54, 0, 0, -22, 34, -66, -2, 6,7, 77, 33]
+
+// Compare the first element with all others 
+// If the first element is max than second then just swap it. 
+// Require two loops so that one element can iterate on all others 
+// Every iteration of the outer loop will sort the first element
+// So, dont need to iterate for the last one as it will get sorted before it
+// Second loop needs to start iteration from the next index of the first loop. 
+
+function bubbleSort(array){
+   if(array.length===0){
+      return -1
+   }
+   for (let i = 0; i < array.length-1; i++) {
+      for (let j = i+1; j < array.length; j++) {
+         if(array[i]> array[j]){
+            swap(array,i, j)
+         }
+      }      
+   }
+   console.log("Bubble Sorted array", array)
+}
+
+function swap(array, maxIndex, end){
+   var temp = array[maxIndex];
+   array[maxIndex] = array[end];
+   array[end] = temp;
+}
+bubbleSort(array)
+
+```
+
+9. ### Selection Sort  
+
+```javascript
+
+//selection sort
+
+var array = [10, 3, 5, 22, 54, 66, 2, 6,7, 77, 33]
+
+function selectionSort(array){
+
+   // first find the index of the Max element
+   // Replace that element with the last element
+   // start index will be constant
+   // end index will keep on changing
+
+   var start = 0;
+   for (let i = 0; i < array.length; i++) {
+      var end = array.length-1-i;
+      var maxIndex = findMaxElement(array, start, end);
+      swap(array, maxIndex, end);
+   }
+   console.log("Sorted array", array)
+}
+
+function swap(array, maxIndex, end){
+   var temp = array[maxIndex];
+   array[maxIndex] = array[end];
+   array[end] = temp;
+}
+
+function findMaxElement(array, start, end){
+   var max = 0
+   for (let i = 0; i < end; i++) {
+         if(array[max]<array[i]){
+            max = i;
+         }      
+   }
+   return max;
+}
+selectionSort(array)
+
+```
