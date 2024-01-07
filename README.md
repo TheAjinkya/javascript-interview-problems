@@ -234,3 +234,104 @@ function findMaxElement(array, start, end){
 selectionSort(array)
 
 ```
+
+10. ### Remove duplicates from an array
+```javascript
+
+//Remove Duplicates
+
+var array = [10, 20, 20, 30, 10, 30, 40, 58, 31, 32, 31]
+
+var unique = [];
+
+for (let i = 0; i < array.length; i++) {
+   let isDup = false;
+   for (let j = i+1; j < array.length; j++) {
+      if(array[i]==array[j]){
+         isDup=true
+         break;
+      }
+   }
+   if(!isDup){
+      unique.push(array[i])         
+   }
+}
+
+console.log(unique)
+
+// Second Method
+
+function removeDuplicates(array){
+   let unique = []
+   array.forEach(el=>{
+      if(!unique.includes(el)){
+         unique.push(el)
+      }
+   })
+   console.log("Unique Arrays", unique)
+}
+
+removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
+
+//Third Method- Using the ES6 features
+
+
+function removeDuplicates3(array){
+   let unique = [...new Set(array)]
+   console.log("Unique Arrays", unique)
+		return unique
+}
+
+//Fourth Method - using the first IndexOf() method
+
+function removeDuplicates4(array){
+   let unique = array.filter((el, index)=>array.indexOf(el)==index)
+ console.log("Unique Arrays", unique)
+}
+
+//Fifth Method
+
+function removeDuplicates3(array){
+   let unique = array.reduce((acc, current)=>{
+      if(acc.indexOf(current) === -1){
+         acc.push(current)
+      }
+      return acc
+   },[])
+   console.log("Unique Arrays", unique)
+}
+
+removeDuplicates3([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
+
+```
+11. ### Reverse a String
+```javascript
+
+function reverseString(str){
+ var reversed = []
+ for (let i = str.length-1; i >=0; i--) {
+   reversed.push(str[i])
+ }
+   console.log("reversed", reversed) 
+ return reversed.join("")
+}
+
+reverseWord("SkeeG")
+
+/**
+ * Using Two Pointers Method
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function (s) {
+    let start = 0;
+    let end = s.length-1;
+    while(start<=end) {
+        let temp = s[start]
+        s[start] = s[end]
+        s[end] = temp;
+        start++;
+        end--;
+    }
+};
+```
